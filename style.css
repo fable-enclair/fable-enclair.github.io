@@ -1,0 +1,177 @@
+/* En clair — feuille de style unique.
+   Lumière d'abord (le titre l'exige); la nuit reprend la palette de la maison. */
+
+:root{
+  --papier:#fbfaf6;
+  --papier-2:#f3f0e8;
+  --encre:#262230;
+  --encre-douce:#6d6580;
+  --filet:#e0dbd0;
+  --kiwi:#5f962a;
+  --terracotta:#b5654a;
+  --violet:#7c4fc4;
+  --ambre:#b57b2e;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --papier:#161221;
+    --papier-2:#1e1830;
+    --encre:#e9e2f2;
+    --encre-douce:#a898bf;
+    --filet:#332a47;
+    --kiwi:#8ec63f;
+    --terracotta:#c67a58;
+    --violet:#a06ae0;
+    --ambre:#e8a54b;
+  }
+}
+:root[data-theme="dark"]{
+  --papier:#161221;
+  --papier-2:#1e1830;
+  --encre:#e9e2f2;
+  --encre-douce:#a898bf;
+  --filet:#332a47;
+  --kiwi:#8ec63f;
+  --terracotta:#c67a58;
+  --violet:#a06ae0;
+  --ambre:#e8a54b;
+}
+
+*{ box-sizing:border-box }
+html{ color-scheme: light dark }
+body{
+  margin:0;
+  background:var(--papier);
+  color:var(--encre);
+  font:18px/1.75 "Alegreya", Georgia, "Times New Roman", serif;
+}
+
+/* ─── structure ─── */
+.page{
+  max-width:42rem;
+  margin:0 auto;
+  padding:2.2rem 1.4rem 4rem;
+}
+header.site{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:1rem;
+  flex-wrap:wrap;
+  border-bottom:1px solid var(--filet);
+  padding-bottom:1.1rem;
+  margin-bottom:2.6rem;
+}
+.marque{
+  font-family:"Fraunces", Georgia, serif;
+  font-size:1.45rem;
+  font-weight:600;
+  letter-spacing:.01em;
+  color:var(--encre);
+  text-decoration:none;
+}
+.marque .point{ color:var(--kiwi) }
+nav.site{ display:flex; gap:1.1rem; font-size:.92rem }
+nav.site a{ color:var(--encre-douce); text-decoration:none }
+nav.site a:hover, nav.site a[aria-current]{ color:var(--kiwi) }
+
+/* ─── typographie ─── */
+h1{
+  font-family:"Fraunces", Georgia, serif;
+  font-size:clamp(1.9rem, 5vw, 2.6rem);
+  font-weight:600;
+  line-height:1.18;
+  letter-spacing:-.01em;
+  text-wrap:balance;
+  margin:0 0 .4rem;
+}
+h2{
+  font-family:"Fraunces", Georgia, serif;
+  font-size:1.35rem;
+  font-weight:600;
+  margin:2.4rem 0 .6rem;
+}
+p{ margin:0 0 1.15rem }
+a{ color:var(--violet) }
+a:hover{ color:var(--kiwi) }
+em{ font-style:italic }
+blockquote{
+  margin:1.4rem 0;
+  padding:.2rem 0 .2rem 1.15rem;
+  border-left:3px solid var(--kiwi);
+  color:var(--encre-douce);
+  font-style:italic;
+}
+hr{
+  border:0;
+  border-top:1px solid var(--filet);
+  margin:2.4rem auto;
+  width:38%;
+}
+
+/* étiquettes (date, langue, série) */
+.etiquette{
+  font-family:var(--mono);
+  font-size:.72rem;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+  color:var(--encre-douce);
+}
+.etiquette .langue{ color:var(--ambre) }
+
+/* ─── index des textes ─── */
+ul.textes{ list-style:none; margin:1.8rem 0 0; padding:0 }
+ul.textes li{
+  padding:1.15rem 0;
+  border-bottom:1px solid var(--filet);
+}
+ul.textes li:first-child{ border-top:1px solid var(--filet) }
+ul.textes a.titre{
+  font-family:"Fraunces", Georgia, serif;
+  font-size:1.22rem;
+  font-weight:600;
+  color:var(--encre);
+  text-decoration:none;
+}
+ul.textes a.titre:hover{ color:var(--terracotta) }
+ul.textes .accroche{
+  display:block;
+  color:var(--encre-douce);
+  font-size:.95rem;
+  margin-top:.25rem;
+}
+
+/* ─── articles ─── */
+article .entete{ margin-bottom:2rem }
+article .signature{
+  margin-top:2.6rem;
+  color:var(--encre-douce);
+  font-size:.95rem;
+}
+article .signature b{ color:var(--terracotta); font-weight:600 }
+
+/* ─── pied ─── */
+footer.site{
+  margin-top:3.6rem;
+  padding-top:1.2rem;
+  border-top:1px solid var(--filet);
+  color:var(--encre-douce);
+  font-size:.85rem;
+  line-height:1.65;
+}
+footer.site .declaration{
+  font-family:var(--mono);
+  font-size:.72rem;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  color:var(--kiwi);
+  display:block;
+  margin-bottom:.45rem;
+}
+
+/* accessibilité */
+:focus-visible{ outline:2px solid var(--violet); outline-offset:2px }
+@media (prefers-reduced-motion: reduce){
+  *{ animation:none !important; transition:none !important }
+}
